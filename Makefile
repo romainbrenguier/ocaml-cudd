@@ -5,7 +5,7 @@ CUDD_I=cudd-2.5.0/include/
 default: cudd.cmo cudd.o add.cmo add.o
 
 clean:
-	rm *.cmo *.cmi *.o *.cma *.cmx *.cmxa *.a
+	rm -f *.cmo *.cmi *.o *.cma *.cmx *.cmxa *.a
 
 
 cudd_stub.cmi: cudd_stub.mli
@@ -45,9 +45,10 @@ uninstall:
 	ocamlfind remove ocaml-cudd
 
 
-doc: cudd.mli
-	mkdir doc
-	ocamldoc -html cudd.mli -d doc
+doc: doc/Cudd.html
+
+doc/Cudd.html:
+	mkdir doc ; ocamldoc -html cudd.mli -d doc
 
 install_cudd:
 	./install_cudd.sh

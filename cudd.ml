@@ -32,7 +32,7 @@ let manager () = match !manager_ref with
   | None -> 
      Printf.eprintf "warning: Cudd DdManager has not been initialized.\n";
      Printf.eprintf "Use [Cudd.init size] to initialize it before using any cudd function.\n";
-     init 100; match !manager_ref with Some x -> x
+     init 100; match !manager_ref with Some x -> x | None -> failwith "in Cudd.manager: failed to initialize Cudd manager"
   
 
 let quit () = 

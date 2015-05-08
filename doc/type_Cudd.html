@@ -1,0 +1,40 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Cudd" rel="Chapter" href="Cudd.html"><title>Cudd</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;quit&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;manager&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd_stub</span>.ddManager<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ithVar&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddTrue&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddFalse&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddNot&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddAnd&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddOr&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;cube<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make_cube&nbsp;:&nbsp;int&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.cube<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddExistAbstract&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.cube&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddUnivAbstract&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.cube&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddAndAbstract&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.cube&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddSwapVariables&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddVectorCompose&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dumpDot&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bddRestrict&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;value&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;equal&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;compare&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;t&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;e&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cudd</span>.bdd<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;nodeReadIndex&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;isComplement&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;isConstant&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dagSize&nbsp;:&nbsp;<span class="constructor">Cudd</span>.bdd&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+<span class="keyword">end</span></code></body></html>
