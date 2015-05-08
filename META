@@ -1,0 +1,7 @@
+name="ocaml-cudd"
+description="ocaml interface to the cudd library"
+version="0.1"
+depends=""
+archive(byte)="cudd.cma"
+archive(native)="cudd.cmxa"
+
