@@ -55,7 +55,8 @@ custom_deserialize_default
 
 /* Accessing the DdNode * part of an OCaml custom block */
 #define DdNode_val(v) (*((DdNode **) Data_custom_val(v)))
-#define AddNode_val(v) (*((DdNode ***) Data_custom_val(v)))
+//#define AddNode_val(v) (*((DdNode ***) Data_custom_val(v)))
+#define AddNode_val(v) (&(DdNode_val(v)))
 
 /* Allocating an OCaml custom block to hold the given WINDOW * */
 static value alloc_node(DdNode * d)
@@ -64,6 +65,7 @@ static value alloc_node(DdNode * d)
   DdNode_val(v) = d;
   return v;
 }
+
 
 /*
 value caml_Cudd_RecursiveDeref(value manager, value bdd)
