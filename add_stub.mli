@@ -33,6 +33,10 @@ external cudd_NodeReadIndex : t -> int = "caml_Cudd_NodeReadIndex"
 
 external cudd_addConst : Cudd_stub.ddManager -> float -> t = "caml_Cudd_addConst"
 
+external cudd_addConst_int : Cudd_stub.ddManager -> int -> t = "caml_Cudd_addConst_int"
+
+external cudd_addIthVar : Cudd_stub.ddManager -> int -> t = "caml_Cudd_addIthVar"
+
 external cudd_addPlus : Cudd_stub.ddManager -> t -> t -> t = "caml_Cudd_addPlus"
 
 external cudd_addMinus : Cudd_stub.ddManager -> t -> t -> t = "caml_Cudd_addMinus"
@@ -57,3 +61,4 @@ external cudd_addLog : Cudd_stub.ddManager -> t -> t = "caml_Cudd_addLog"
 
 external cudd_addDumpDot : Cudd_stub.ddManager -> string -> t -> unit = "caml_Cudd_addDumpDot"
 
+external cudd_addMatrixMultiply : Cudd_stub.ddManager -> t -> t -> t array -> int -> t = "caml_Cudd_addMatrixMultiply"

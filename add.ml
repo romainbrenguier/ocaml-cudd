@@ -54,6 +54,14 @@ let const f =
   let c = Add_stub.cudd_addConst (manager()) f in
   Gc.finalise deref c; c
 
+let const_int f = 
+  let c = Add_stub.cudd_addConst_int (manager()) f in
+  Gc.finalise deref c; c
+
+let ithVar i = 
+  let c = Add_stub.cudd_addIthVar (manager()) i in
+  Gc.finalise deref c; c
+
 let plus a b =
   let c = Add_stub.cudd_addPlus (manager()) a b in
   Gc.finalise deref c; c
@@ -100,3 +108,8 @@ let log a =
 
 let dumpDot f b =
   Add_stub.cudd_addDumpDot (manager()) f b 
+
+type ring = PlusTimes | MinPlus | MaxPlus
+let matrixMultiply a b z r =
+  let i = match r with PlusTimes -> 1 | MinPlus -> 2 | MaxPlus -> 3 in
+  Add_stub.cudd_addMatrixMultiply (manager()) a b z i
