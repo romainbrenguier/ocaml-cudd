@@ -15,5 +15,8 @@ echo " Unpacking CUDD utilities ..."
 rm -rf $CUDD
 tar -xzf $CUDD_ARCHIVE
 
+echo " Patching CUDD..."
+(cd $CUDD; patch -p0 -i ../cudd.patch)
+
 echo " Compiling CUDD utilities ..."
 (cd $CUDD; make)
