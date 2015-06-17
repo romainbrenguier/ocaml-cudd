@@ -116,6 +116,6 @@ let operation_to_int = function
   | OneZeroMaximum -> 7 | Diff -> 8 | Agreement -> 9 | Or -> 10 | Nand -> 11 | Nor -> 12 | Xor -> 13 | Xnor -> 14
 type ring = { sum : operation ; product : operation ; zero : float }
 
-let matrixMultiply a b z r =
+let matrixMultiply r a b z =
   Add_stub.cudd_setRing (operation_to_int r.sum) (operation_to_int r.product) r.zero;
   Add_stub.cudd_addMatrixMultiply (manager()) a b z

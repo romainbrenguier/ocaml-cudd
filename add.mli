@@ -70,4 +70,4 @@ type ring = { sum : operation ; product : operation ; zero : float }
 the two first arguments are the matrices to multiply, 
 the third is an array containing the variable on which to multiply (columns of the first matrix and lines of the second one) 
 the last argument is the ring to use for multiplication *)
-val matrixMultiply : t -> t -> t array -> ring -> t
+val matrixMultiply : ring -> t -> t -> t array -> t
