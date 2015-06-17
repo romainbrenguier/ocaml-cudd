@@ -29,7 +29,22 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dumpDot&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;operation&nbsp;=&nbsp;<span class="constructor">Plus</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Min</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Times</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;operation&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Plus</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Minimum</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Times</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Threshold</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Divide</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Minus</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Maximum</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">OneZeroMaximum</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Diff</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Agreement</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Or</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Nand</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Nor</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Xor</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Xnor</span><br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;ring&nbsp;=&nbsp;{&nbsp;sum&nbsp;:&nbsp;<span class="constructor">Add</span>.operation;&nbsp;product&nbsp;:&nbsp;<span class="constructor">Add</span>.operation;&nbsp;zero&nbsp;:&nbsp;float;&nbsp;}<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;matrixMultiply&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.ring&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
 <span class="keyword">end</span></code></body></html>
