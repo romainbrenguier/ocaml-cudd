@@ -60,7 +60,7 @@ val dumpDot : string -> t -> unit
 
 (** Operations that can be used in matrix multiplication *)
 type operation = 
-  | Plus | Mininimum | Times | Threshold | Divide | Minus | Maximum
+  | Plus | Minimum | Times | Threshold | Divide | Minus | Maximum
   | OneZeroMaximum | Diff | Agreement | Or | Nand | Nor | Xor | Xnor 
 
 (** Ring to be used matrix multiplication *)

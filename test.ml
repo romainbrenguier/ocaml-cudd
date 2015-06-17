@@ -7,9 +7,9 @@ let main =
   Cudd.init 10;
   let a = times (const 2.) (ithVar 0) in
   let b = times (const 2.) (ithVar 1) in
-  Add.dumpDot "test_b.dot" b;
-  let ring = {sum=Min;product=Plus;zero=0.} in
-  let c = Add.matrixMultiply a b [| Add.ithVar 0 |] ring in
+  dumpDot "test_b.dot" b;
+  let ring = {sum=Minimum;product=Plus;zero=0.} in
+  let c = matrixMultiply a b [| ithVar 0 |] ring in
   print_endline "writing test.dot";
-  Add.dumpDot "test.dot" (Add.plus c a)
-	      (* Printf.printf "c : %f\n" (Add.v c) *)
+  dumpDot "test.dot" (plus c a)
+
