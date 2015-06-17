@@ -109,7 +109,11 @@ let log a =
 let dumpDot f b =
   Add_stub.cudd_addDumpDot (manager()) f b 
 
-type ring = PlusTimes | MinPlus | MaxPlus
+type operation = Plus | Min | Times
+let operation_to_int = function
+  | Plus -> 0 | Min -> 1 | Times -> 2
+type ring = { sum : operation ; product : operation ; zero : float }
+
 let matrixMultiply a b z r =
-  let i = match r with PlusTimes -> 1 | MinPlus -> 2 | MaxPlus -> 3 in
-  Add_stub.cudd_addMatrixMultiply (manager()) a b z i
+  Add_stub.cudd_setRing (operation_to_int r.sum) (operation_to_int r.product) r.zero;
+  Add_stub.cudd_addMatrixMultiply (manager()) a b z

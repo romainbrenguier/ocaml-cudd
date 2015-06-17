@@ -61,4 +61,6 @@ external cudd_addLog : Cudd_stub.ddManager -> t -> t = "caml_Cudd_addLog"
 
 external cudd_addDumpDot : Cudd_stub.ddManager -> string -> t -> unit = "caml_Cudd_addDumpDot"
 
-external cudd_addMatrixMultiply : Cudd_stub.ddManager -> t -> t -> t array -> int -> t = "caml_Cudd_addMatrixMultiply"
+external cudd_setRing : int -> int -> float -> unit = "caml_setRing"
+
+external cudd_addMatrixMultiply : Cudd_stub.ddManager -> t -> t -> t array -> t = "caml_Cudd_addMatrixMultiply"

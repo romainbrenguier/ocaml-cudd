@@ -54,13 +54,15 @@ val log : t -> t
 
 (** Cudd_addConst. Return a constant ADD with the given value. *)
 val const : float -> t
-(** Should only be used if CUDD was compiled with CUDD_VALUE_TYPE="int" *)
-val const_int : int -> t
 
+(** Write the ADD in a dot file *)
 val dumpDot : string -> t -> unit
 
+(** Operations that can be used in matrix multiplication *)
+type operation = Plus | Min | Times
 
-type ring = PlusTimes | MinPlus | MaxPlus
+(** Ring to be used matrix multiplication *)
+type ring = { sum : operation ; product : operation ; zero : float }
 
 (** matrix multiplication: 
 the two first arguments are the matrices to multiply, 
