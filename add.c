@@ -239,7 +239,6 @@ value caml_Cudd_addDumpDot(value manager, value file_name, value add)
 {
   CAMLparam3(manager,file_name,add);
   FILE* f = fopen(String_val(file_name), "w");
-  printf("writing dot file %d\n",AddNode_val(add));
   Cudd_DumpDot(Manager_val(manager), 1 , &(AddNode_val(add)) , NULL, NULL, f);
   fclose(f);
   CAMLreturn(Val_unit);
@@ -487,7 +486,7 @@ addMatrixMultiply(
     FREE(vars);
     return(res);
 
-} /* end of Cudd_addMatrixMultiply */
+} 
 
 
 
@@ -504,10 +503,12 @@ value caml_Cudd_addMatrixMultiply(value dd,value a,value b,value vector,value r)
       tab[i] = DdNode_val(Field(vector,i));
       //Cudd_Ref(tab[i]);
     }
-  
+
+  /*  
   DdNode * (*c_sum)(DdManager*,DdNode**,DdNode**);
   DdNode * (*c_product)(DdManager*,DdNode**,DdNode**);  
-  DdNode * zero;
+
+    DdNode * zero;
   int ring = Int_val(r);
 
   assert(ring >= 0 && ring <= 2);
@@ -525,7 +526,9 @@ value caml_Cudd_addMatrixMultiply(value dd,value a,value b,value vector,value r)
 
   DdNode * result = addMatrixMultiply(Manager_val(dd),DdNode_val(a),DdNode_val(b),tab,i,c_sum,c_product,zero);
   Cudd_Ref(result);
-
+  */
+  DdNode * result = Cudd_addMatrixMultiply(Manager_val(dd),DdNode_val(a),DdNode_val(b),tab,i);
+  Cudd_Ref(result);
 
   free(tab);
   CAMLreturn(alloc_node(result));

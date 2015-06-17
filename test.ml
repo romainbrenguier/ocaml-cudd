@@ -1,5 +1,4 @@
-(* 
-compile with the following command:
+(*  compile with the following command:
 ocamlc -custom cudd.o cudd.cmo add.o add.cmo -I cudd-2.5.0/include/ cudd-2.5.0/cudd/libcudd.a cudd-2.5.0/util/libutil.a cudd-2.5.0/epd/libepd.a cudd-2.5.0/mtr/libmtr.a cudd-2.5.0/st/libst.a test.ml -o test *)
 
 let main =
