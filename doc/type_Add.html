@@ -1,0 +1,35 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Cudd" rel="Chapter" href="Cudd.html">
+<link title="Add" rel="Chapter" href="Add.html"><title>Add</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;isConstant&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;t&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;e&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;v&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ithVar&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;plus&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;minus&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;times&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;divide&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;minimum&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;maximum&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;agreement&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;diff&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;threshold&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;setNZ&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const_int&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dumpDot&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;ring&nbsp;=&nbsp;<span class="constructor">PlusTimes</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MinPlus</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">MaxPlus</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;matrixMultiply&nbsp;:&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.ring&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Add</span>.t<br>
+<span class="keyword">end</span></code></body></html>

@@ -45,10 +45,10 @@ uninstall:
 	ocamlfind remove ocaml-cudd
 
 
-doc: doc/Cudd.html
+doc: doc/Cudd.html *.mli
 
 doc/Cudd.html:
-	mkdir doc ; ocamldoc -html cudd.mli -d doc
+	mkdir doc ; ocamldoc -html cudd.mli add.mli -d doc
 
 install_cudd:
 	./install_cudd.sh

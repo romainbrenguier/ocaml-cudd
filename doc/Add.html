@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Cudd.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Cudd" rel="Chapter" href="Cudd.html">
+<link title="Add" rel="Chapter" href="Add.html"><title>Add</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Cudd.html" title="Cudd">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Add.html">Add</a></h1>
+
+<pre><span class="keyword">module</span> Add: <code class="code">sig</code> <a href="Add.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Interface to ADD<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+type for ADDs<br>
+</div>
+
+
+<pre><span id="VALisConstant"><span class="keyword">val</span> isConstant</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+Cudd_IsConstant. Is the ADD constant ?<br>
+</div>
+<br>
+Cudd_NodeReadIndex. Returns the index of the ADD (65535 for a constant ADD)<br>
+
+<pre><span id="VALt"><span class="keyword">val</span> t</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_T. Returns the positive subnode of the ADD
+<p>
+Cudd_E. Returns the negative subnode of the ADD<br>
+</div>
+
+<pre><span id="VALe"><span class="keyword">val</span> e</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_V. Returns the value of the assumed constant ADD<br>
+</div>
+
+<pre><span id="VALv"><span class="keyword">val</span> v</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> float</code></pre>
+<pre><span id="VALithVar"><span class="keyword">val</span> ithVar</span> : <code class="type">int -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addIthVar.<br>
+</div>
+
+<pre><span id="VALplus"><span class="keyword">val</span> plus</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addPlus.<br>
+</div>
+
+<pre><span id="VALminus"><span class="keyword">val</span> minus</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addMinus.<br>
+</div>
+
+<pre><span id="VALtimes"><span class="keyword">val</span> times</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addTimes.<br>
+</div>
+
+<pre><span id="VALdivide"><span class="keyword">val</span> divide</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addDivide.<br>
+</div>
+
+<pre><span id="VALminimum"><span class="keyword">val</span> minimum</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addMinimum.<br>
+</div>
+
+<pre><span id="VALmaximum"><span class="keyword">val</span> maximum</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addMaximum.<br>
+</div>
+
+<pre><span id="VALagreement"><span class="keyword">val</span> agreement</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addAgreement.<br>
+</div>
+
+<pre><span id="VALdiff"><span class="keyword">val</span> diff</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addDiff.<br>
+</div>
+
+<pre><span id="VALthreshold"><span class="keyword">val</span> threshold</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addThreshold.<br>
+</div>
+
+<pre><span id="VALsetNZ"><span class="keyword">val</span> setNZ</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addSetNZ.<br>
+</div>
+
+<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addLog.<br>
+</div>
+
+<pre><span id="VALconst"><span class="keyword">val</span> const</span> : <code class="type">float -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+Cudd_addConst. Return a constant ADD with the given value.
+<p>
+Should only be used if CUDD was compiled with CUDD_VALUE_TYPE="int"<br>
+</div>
+
+<pre><span id="VALconst_int"><span class="keyword">val</span> const_int</span> : <code class="type">int -> <a href="Add.html#TYPEt">t</a></code></pre>
+<pre><span id="VALdumpDot"><span class="keyword">val</span> dumpDot</span> : <code class="type">string -> <a href="Add.html#TYPEt">t</a> -> unit</code></pre>
+<pre><code><span id="TYPEring"><span class="keyword">type</span> <code class="type"></code>ring</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.PlusTimes"><span class="constructor">PlusTimes</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.MinPlus"><span class="constructor">MinPlus</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.MaxPlus"><span class="constructor">MaxPlus</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALmatrixMultiply"><span class="keyword">val</span> matrixMultiply</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> array -> <a href="Add.html#TYPEring">ring</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
+matrix multiplication: 
+the two first arguments are the matrices to multiply, 
+the third is an array containing the variable on which to multiply (columns of the first matrix and lines of the second one) 
+the last argument is the ring to use for multiplication<br>
+</div>
+</body></html>
