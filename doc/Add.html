@@ -95,36 +95,68 @@ Cudd_addLog.<br>
 </div>
 
 <pre><span id="VALconst"><span class="keyword">val</span> const</span> : <code class="type">float -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">
-Cudd_addConst. Return a constant ADD with the given value.
-<p>
-Should only be used if CUDD was compiled with CUDD_VALUE_TYPE="int"<br>
+Cudd_addConst. Return a constant ADD with the given value.<br>
 </div>
 
-<pre><span id="VALconst_int"><span class="keyword">val</span> const_int</span> : <code class="type">int -> <a href="Add.html#TYPEt">t</a></code></pre>
-<pre><span id="VALdumpDot"><span class="keyword">val</span> dumpDot</span> : <code class="type">string -> <a href="Add.html#TYPEt">t</a> -> unit</code></pre>
-<pre><code><span id="TYPEring"><span class="keyword">type</span> <code class="type"></code>ring</span> = </code></pre><table class="typetable">
+<pre><span id="VALdumpDot"><span class="keyword">val</span> dumpDot</span> : <code class="type">string -> <a href="Add.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Write the ADD in a dot file<br>
+</div>
+
+<pre><code><span id="TYPEoperation"><span class="keyword">type</span> <code class="type"></code>operation</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTring.PlusTimes"><span class="constructor">PlusTimes</span></span></code></td>
+<code><span id="TYPEELToperation.Plus"><span class="constructor">Plus</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTring.MinPlus"><span class="constructor">MinPlus</span></span></code></td>
+<code><span id="TYPEELToperation.Min"><span class="constructor">Min</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTring.MaxPlus"><span class="constructor">MaxPlus</span></span></code></td>
+<code><span id="TYPEELToperation.Times"><span class="constructor">Times</span></span></code></td>
 
 </tr></table>
 
+<div class="info ">
+Operations that can be used in matrix multiplication<br>
+</div>
+
+
+<pre><code><span id="TYPEring"><span class="keyword">type</span> <code class="type"></code>ring</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.sum">sum</span>&nbsp;: <code class="type"><a href="Add.html#TYPEoperation">operation</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.product">product</span>&nbsp;: <code class="type"><a href="Add.html#TYPEoperation">operation</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTring.zero">zero</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+Ring to be used matrix multiplication<br>
+</div>
 
 
 <pre><span id="VALmatrixMultiply"><span class="keyword">val</span> matrixMultiply</span> : <code class="type"><a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> -> <a href="Add.html#TYPEt">t</a> array -> <a href="Add.html#TYPEring">ring</a> -> <a href="Add.html#TYPEt">t</a></code></pre><div class="info ">

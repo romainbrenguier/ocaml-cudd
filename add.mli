@@ -59,7 +59,9 @@ val const : float -> t
 val dumpDot : string -> t -> unit
 
 (** Operations that can be used in matrix multiplication *)
-type operation = Plus | Min | Times
+type operation = 
+  | Plus | Mininimum | Times | Threshold | Divide | Minus | Maximum
+  | OneZeroMaximum | Diff | Agreement | Or | Nand | Nor | Xor | Xnor 
 
 (** Ring to be used matrix multiplication *)
 type ring = { sum : operation ; product : operation ; zero : float }

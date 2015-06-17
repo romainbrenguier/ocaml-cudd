@@ -109,9 +109,11 @@ let log a =
 let dumpDot f b =
   Add_stub.cudd_addDumpDot (manager()) f b 
 
-type operation = Plus | Min | Times
+type operation = Plus | Mininimum | Times | Threshold | Divide | Minus | Maximum | OneZeroMaximum | Diff | Agreement | Or | Nand | Nor | Xor | Xnor 
+
 let operation_to_int = function
-  | Plus -> 0 | Min -> 1 | Times -> 2
+  | Plus -> 0 | Min -> 1 | Times -> 2 | Threshold -> 3 | Divide -> 4 | Minus -> 5 | Maximum -> 6 
+  | OneZeroMaximum -> 7 | Diff -> 8 | Agreement -> 9 | Or -> 10 | Nand -> 11 | Nor -> 12 | Xor -> 13 | Xnor -> 14
 type ring = { sum : operation ; product : operation ; zero : float }
 
 let matrixMultiply a b z r =
