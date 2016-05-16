@@ -2,48 +2,30 @@ CUDD_INCLUDE=cudd-2.5.0/cudd/libcudd.a cudd-2.5.0/util/libutil.a cudd-2.5.0/epd/
 
 CUDD_I=cudd-2.5.0/include/
 
-default: cudd.cmo cudd.o add.cmo add.o
+default:  cudd.cmo cudd.cmxa cudd.o 
 
 clean:
 	rm -f *.cmo *.cmi *.o *.cma *.cmx *.cmxa *.a
-
-
-cudd_stub.cmi: cudd_stub.mli
-	ocamlc -c cudd_stub.mli
-
-cudd.cmi: cudd.mli cudd_stub.cmi
-	ocamlc -c cudd.mli
-
-add_stub.cmi: add_stub.mli
-	ocamlc -c add_stub.mli
-
-add.cmi: add.mli add_stub.cmi
-	ocamlc -c add.mli
+	ocamlbuild -clean
 
 cudd.o: cudd.c 
 	ocamlc -I $(CUDD_I) -c cudd.c
+	mv cudd.o _build/
 
-add.o: add.c 
-	ocamlc -I $(CUDD_I) -c add.c
+cudd.cmo: cudd.ml 
+	ocamlbuild cudd.cmo
 
-cudd.cmo: cudd.ml cudd.cmi
-	ocamlc -c cudd.ml
-
-add.cmo: add.ml add.cmi
-	ocamlc -c add.ml
-
-cudd.cmx: cudd.ml cudd_stub.cmi cudd.cmi
-	ocamlopt -c cudd.ml
+cudd.cmxa: cudd.ml
+	ocamlbuild cudd.cmxa
 
 cudd.cma: cudd.cmx cudd.o cudd.cmo cudd_stub.cmi cudd.cmi
 	ocamlmklib -custom -verbose -o cudd $(CUDD_INCLUDE) cudd.o cudd.cmo cudd.cmx cudd_stub.mli cudd.mli -L$(CUDD_I)
 
-install:
+install: cudd_stub.cmi cudd.cmi cudd.o cudd.cmo cudd.cma cudd.cmxa
 	ocamlfind install ocaml-cudd META cudd.cm* *.mli *.a *.o
 
 uninstall:
 	ocamlfind remove ocaml-cudd
-
 
 doc: doc/Cudd.html
 
