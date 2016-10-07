@@ -1,0 +1,119 @@
+--- cudd/cudd.h	2015-06-17 13:45:48.450191839 +0200
+***************
+*** 612,617 ****
+--- 612,621 ----
+  
+  /**AutomaticStart*************************************************************/
+  
++ 
++   typedef enum { OP_PLUS , OP_MINIMUM , OP_TIMES , OP_THRESHOLD , OP_DIVIDE , OP_MINUS , OP_MAXIMUM , OP_ONEZEROMAXIMUM, OP_DIFF , OP_AGREEMENT , OP_OR , OP_NAND , OP_NOR , OP_XOR , OP_XNOR } operation;
++ extern void setRing(operation sum, operation product, double zero);
++   
+  /*---------------------------------------------------------------------------*/
+  /* Function prototypes                                                       */
+  /*---------------------------------------------------------------------------*/
+--- cudd/cuddMatMult.c	2015-06-17 13:56:41.033875866 +0200
+***************
+*** 87,92 ****
+--- 87,108 ----
+  /* Macro declarations                                                        */
+  /*---------------------------------------------------------------------------*/
+  
++ int ring_sum = OP_PLUS; 
++ int ring_product = OP_TIMES;
++ double ring_zero = 0.0;
++ 
++ #define OP_OF_INT(x) ((x == OP_PLUS)?Cudd_addPlus:((x == OP_MINIMUM)?Cudd_addMinimum:((x == OP_TIMES)?Cudd_addTimes:((x == OP_THRESHOLD)?Cudd_addThreshold:((x == OP_DIVIDE)?Cudd_addDivide:((x == OP_MINUS)?Cudd_addMinus:((x == OP_MAXIMUM)?Cudd_addMaximum:((x == OP_ONEZEROMAXIMUM)?Cudd_addOneZeroMaximum:((x == OP_DIFF)?Cudd_addDiff:((x == OP_AGREEMENT)?Cudd_addAgreement:((x == OP_OR)?Cudd_addOr:((x == OP_NAND)?Cudd_addNand:((x == OP_NOR)?Cudd_addNor:((x == OP_XOR)?Cudd_addXor:Cudd_addXnor))))))))))))))
++ 
++ #define RING_SUM (OP_OF_INT(ring_sum)) 
++ #define RING_PRODUCT (OP_OF_INT(ring_product))
++ #define RING_ZERO (Cudd_addConst(dd,ring_zero))
++ 
++ void setRing(operation sum, operation product, double zero)
++ {
++   ring_sum = sum; 
++   ring_product = product;
++   ring_zero = zero;
++ }
+  
+  /**AutomaticStart*************************************************************/
+  
+***************
+*** 187,198 ****
+  {
+      DdNode *w, *cube, *tmp, *res; 
+      int i;
+!     tmp = Cudd_addApply(dd,Cudd_addTimes,A,B);
+      if (tmp == NULL) return(NULL);
+      Cudd_Ref(tmp);
+      Cudd_Ref(cube = DD_ONE(dd));
+      for (i = nz-1; i >= 0; i--) {
+! 	 w = Cudd_addIte(dd,z[i],cube,DD_ZERO(dd));
+  	 if (w == NULL) {
+  	    Cudd_RecursiveDeref(dd,tmp);
+  	    return(NULL);
+--- 203,214 ----
+  {
+      DdNode *w, *cube, *tmp, *res; 
+      int i;
+!     tmp = Cudd_addApply(dd,RING_PRODUCT,A,B);
+      if (tmp == NULL) return(NULL);
+      Cudd_Ref(tmp);
+      Cudd_Ref(cube = DD_ONE(dd));
+      for (i = nz-1; i >= 0; i--) {
+! 	 w = Cudd_addIte(dd,z[i],cube,RING_ZERO);
+  	 if (w == NULL) {
+  	    Cudd_RecursiveDeref(dd,tmp);
+  	    return(NULL);
+***************
+*** 415,421 ****
+  		return(NULL);
+  	    }
+  	    cuddRef(add_scale);
+! 	    scaled = cuddAddApplyRecur(dd,Cudd_addTimes,res,add_scale);
+  	    if (scaled == NULL) {
+  		Cudd_RecursiveDeref(dd, add_scale);
+  		Cudd_RecursiveDeref(dd, res);
+--- 431,437 ----
+  		return(NULL);
+  	    }
+  	    cuddRef(add_scale);
+! 	    scaled = cuddAddApplyRecur(dd,RING_PRODUCT,res,add_scale);
+  	    if (scaled == NULL) {
+  		Cudd_RecursiveDeref(dd, add_scale);
+  		Cudd_RecursiveDeref(dd, res);
+***************
+*** 473,479 ****
+  	/* we have simultaneously split on the columns of A and
+  	** the rows of B. The two subresults must be added.
+  	*/
+! 	res = cuddAddApplyRecur(dd,Cudd_addPlus,t,e);
+  	if (res == NULL) {
+  	    Cudd_RecursiveDeref(dd, t);
+  	    Cudd_RecursiveDeref(dd, e);
+--- 489,495 ----
+  	/* we have simultaneously split on the columns of A and
+  	** the rows of B. The two subresults must be added.
+  	*/
+! 	res = cuddAddApplyRecur(dd,RING_SUM,t,e);
+  	if (res == NULL) {
+  	    Cudd_RecursiveDeref(dd, t);
+  	    Cudd_RecursiveDeref(dd, e);
+***************
+*** 508,514 ****
+  		return(NULL);
+  	    }
+  	    cuddRef(add_scale);
+! 	    scaled = cuddAddApplyRecur(dd,Cudd_addTimes,res,add_scale);
+  	    if (scaled == NULL) {
+  		Cudd_RecursiveDeref(dd, res);
+  		Cudd_RecursiveDeref(dd, add_scale);
+--- 524,530 ----
+  		return(NULL);
+  	    }
+  	    cuddRef(add_scale);
+! 	    scaled = cuddAddApplyRecur(dd,RING_PRODUCT,res,add_scale);
+  	    if (scaled == NULL) {
+  		Cudd_RecursiveDeref(dd, res);
+  		Cudd_RecursiveDeref(dd, add_scale);
+
